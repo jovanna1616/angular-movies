@@ -9,8 +9,12 @@ import { Movie } from '../../shared/model/movie';
 })
 export class MoviesComponent implements OnInit {
 	private movies: Array<Movie>;
-
 	private count:number = 0;
+	// opcije kad su svi markirani ili samo neki
+	public selectedAll = false;
+    public selectedSome = false;
+
+    
   constructor(private movieService: MovieService) { }
 
   ngOnInit() {
@@ -25,8 +29,8 @@ export class MoviesComponent implements OnInit {
         this.count = this.movies.length;
     }
 
-    deselectAllCounter() {
-        this.count = 0;
-    }
+	deselectAllCounter() {
+	    this.count = 0;
+	}
 
 }

@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter, OnChanges } from '@angular/core';
 import { Movie } from '../../../shared/model/movie';
 
 @Component({
@@ -7,18 +7,30 @@ import { Movie } from '../../../shared/model/movie';
   styleUrls: ['./movie-row.component.css']
 })
 export class MovieRowComponent implements OnInit {
+	// za razmenu info iz parent movies componente
 	@Input() movie: Movie;
+	@Input() selectedAll;
+	@Input() selectedSome;
+	@Input() selectAllCounter;
+	@Input() deselectAllCounter;
 	@Output() onSelect = new EventEmitter<Movie>();
 
 	//  po default-u nista nije selectovano
 	private selected: boolean = false;
-	
+
   constructor() { }
 
   ngOnInit() {
   }
 
-  // onesposobljavanje select buutton na click
+  // ako je izabran od strane parent-a selected se menja na true
+    ngOnChanges(changes) {
+        if (this.selectedSome === false) {
+            this.selected = this.selectedAll;
+        }
+    }
+
+  // onesposobljavanje select button na click
   selectMovie(movie: Movie) {
     this.onSelect.emit(movie);
     this.selected = true;

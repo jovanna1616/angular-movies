@@ -7,13 +7,13 @@
     <button class="btn btn-primary">
         Sort by duration
     </button>
-    <button class="btn btn-primary">
+    <button class="btn btn-primary" (click)="selectedAll = false; selectedAny = false;" (click)="deselectAllCounter()">
         Reset
     </button>
-    <button class="btn btn-primary">
+    <button class="btn btn-primary" (click)="selectedAll = true" (click)="selectAllCounter()">
         Select all
     </button>
     <hr>
-<app-movie-row (onSelect)="onSelect($event)" *ngFor="let movie of movies" [movie]="movie"></app-movie-row>
+<app-movie-row (onSelect)="onSelect($event)" *ngFor="let movie of movies" [movie]="movie" [selectedSome]="selectedSome" [selectedAll]="selectedAll"></app-movie-row>
 </div>
 <router-outlet></router-outlet>
