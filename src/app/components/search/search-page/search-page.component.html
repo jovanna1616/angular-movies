@@ -1,3 +1,4 @@
 <p>
-  search-page works!
+  Pretraga po terminu: {{ term }}
+  <app-movie-row *ngFor="let movie of movies" [movie]="movie"></app-movie-row>
 </p>
