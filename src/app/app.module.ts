@@ -11,7 +11,7 @@ import { SharedModule } from './shared/shared/shared.module';
   declarations: [
     AppComponent,
     LayoutComponent,
-    MoviesComponent
+    MoviesComponent,
   ],
   imports: [
     BrowserModule,
