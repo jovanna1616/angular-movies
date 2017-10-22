@@ -5,6 +5,7 @@ import { AppComponent } from './app.component';
 import { LayoutComponent } from './components/layout/layout.component';
 import { AppRoutingModule } from './app-routing/app-routing.module';
 import { MoviesComponent } from './components/movies/movies.component';
+import { SharedModule } from './shared/shared/shared.module';
 
 @NgModule({
   declarations: [
@@ -15,6 +16,7 @@ import { MoviesComponent } from './components/movies/movies.component';
   imports: [
     BrowserModule,
     AppRoutingModule,
+    SharedModule,
   ],
   exports: [
   	LayoutComponent,
