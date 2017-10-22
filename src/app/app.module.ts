@@ -6,6 +6,7 @@ import { LayoutComponent } from './components/layout/layout.component';
 import { AppRoutingModule } from './app-routing/app-routing.module';
 import { MoviesComponent } from './components/movies/movies.component';
 import { SharedModule } from './shared/shared/shared.module';
+import { SearchModule } from './shared/search/search.module';
 
 @NgModule({
   declarations: [
@@ -17,6 +18,7 @@ import { SharedModule } from './shared/shared/shared.module';
     BrowserModule,
     AppRoutingModule,
     SharedModule,
+    SearchModule,
   ],
   exports: [
   	LayoutComponent,
