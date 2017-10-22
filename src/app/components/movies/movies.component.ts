@@ -14,7 +14,7 @@ export class MoviesComponent implements OnInit {
 	public selectedAll = false;
     public selectedSome = false;
 
-    
+
   constructor(private movieService: MovieService) { }
 
   ngOnInit() {
@@ -31,6 +31,42 @@ export class MoviesComponent implements OnInit {
 
 	deselectAllCounter() {
 	    this.count = 0;
+	}
+	//https://stackoverflow.com/questions/43311121/sort-an-array-of-objects-in-typescript
+	sortingMoviesByNameAsc() {
+		this.movies.sort((m1:Movie, m2:Movie) => {
+      if (m1['name'] < m2['name']) {
+       return -1;
+   	  }
+      if (m1['name'] > m2['name']) {
+      	return 1;
+      }
+      return 0;
+    });
+	}
+
+	sortingMoviesByNameDesc() {
+		this.movies.sort((m1:Movie, m2:Movie) => {
+      if (m1['name'] > m2['name']) {
+       return -1;
+   	  }
+      if (m1['name'] < m2['name']) {
+      	return 1;
+      }
+      return 0;
+    });
+
+	}
+	sortingMoviesByDuration() {
+		this.movies.sort((m1:Movie, m2:Movie) => {
+      if (m1['duration'] < m2['duration']) {
+       return -1;
+   	  }
+      if (m1['duration'] > m2['duration']) {
+      	return 1;
+      }
+      return 0;
+    });
 	}
 
 }
