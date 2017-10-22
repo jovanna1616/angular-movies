@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { Movie } from '../../../shared/model/movie';
 
 @Component({
@@ -8,9 +8,20 @@ import { Movie } from '../../../shared/model/movie';
 })
 export class MovieRowComponent implements OnInit {
 	@Input() movie: Movie;
+	@Output() onSelect = new EventEmitter<Movie>();
+
+	//  po default-u nista nije selectovano
+	private selected: boolean = false;
+	
   constructor() { }
 
   ngOnInit() {
+  }
+
+  // onesposobljavanje select buutton na click
+  selectMovie(movie: Movie) {
+    this.onSelect.emit(movie);
+    this.selected = true;
   }
 
 }

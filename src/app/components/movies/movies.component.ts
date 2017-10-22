@@ -9,11 +9,24 @@ import { Movie } from '../../shared/model/movie';
 })
 export class MoviesComponent implements OnInit {
 	private movies: Array<Movie>;
+
+	private count:number = 0;
   constructor(private movieService: MovieService) { }
 
   ngOnInit() {
   	this.movieService.getMovies().subscribe(movies => {this.movies = movies});
   	console.log(this.movies);
   }
+
+  onSelect(selected) {
+  	this.count++;
+  }
+  selectAllCounter() {
+        this.count = this.movies.length;
+    }
+
+    deselectAllCounter() {
+        this.count = 0;
+    }
 
 }
