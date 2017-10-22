@@ -30,6 +30,17 @@ export class MovieService {
  			});
        // return Observable.of(this.movies);
   }
+
+  searchMovies(term): Observable<Array<Movie>> {
+    const foundedMovies = this.movies.filter((movie: Movie) => {
+      return movie.name.includes(term);
+    });
+     
+    return new Observable(observer => {
+      observer.next(foundedMovies);
+    });
+    // return Observable.of(foundedMovies);
+  }
 	
 
 
