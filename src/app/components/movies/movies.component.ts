@@ -12,7 +12,7 @@ export class MoviesComponent implements OnInit {
 	private count:number = 0;
 	// opcije kad su svi markirani ili samo neki
 	public selectedAll = false;
-    public selectedSome = false;
+  public selectedSome = false;
 
 
   constructor(private movieService: MovieService) { }

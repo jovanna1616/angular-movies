@@ -7,6 +7,8 @@ import { AppRoutingModule } from './app-routing/app-routing.module';
 import { MoviesComponent } from './components/movies/movies.component';
 import { SharedModule } from './shared/shared/shared.module';
 import { SearchModule } from './shared/search/search.module';
+import { FormsModule } from '@angular/forms';
+import { NgxPaginationModule } from 'ngx-pagination';
 
 @NgModule({
   declarations: [
@@ -19,6 +21,8 @@ import { SearchModule } from './shared/search/search.module';
     AppRoutingModule,
     SharedModule,
     SearchModule,
+    FormsModule,
+    NgxPaginationModule
   ],
   exports: [
   	LayoutComponent,

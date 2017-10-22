@@ -1,5 +1,7 @@
 import { Component, OnInit, Input, Output, EventEmitter, OnChanges } from '@angular/core';
 import { Movie } from '../../../shared/model/movie';
+import { MovieService } from '../../../shared/services/movie.service';
+import 'rxjs/add/operator/map';
 
 @Component({
   selector: 'app-movie-row',
@@ -18,7 +20,9 @@ export class MovieRowComponent implements OnInit {
 	//  po default-u nista nije selectovano
 	private selected: boolean = false;
 
-  constructor() { }
+  
+
+  constructor(private movieService: MovieService) { }
 
   ngOnInit() {
   }
